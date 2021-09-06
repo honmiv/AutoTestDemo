@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'junit:junit:4.13.1'
+    implementation 'org.springframework.kafka:spring-kafka:2.7.2'
+    testImplementation 'org.testcontainers:kafka:1.16.0'
+    testImplementation(//'org.junit.jupiter:junit-jupiter-api:5.7.2',
+
+           //'org.junit.platform:junit-platform-commons:1.7.2',
+            'org.junit.jupiter:junit-jupiter-engine:5.7.2',
+         //  'org.junit.vintage:junit-vintage-engine:5.4.0'
+    )
+    implementation 'org.springframework:spring-web:${spring.web}'
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.4'
+    implementation 'org.springframework:spring-context:${spring.framework}'
+    implementation 'org.springframework:spring-core:${spring.framework}'
+    testImplementation 'org.mockito:mockito-all:1.8.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+
+    implementation('org.seleniumhq.selenium:selenium-java:3.141.59'
+    )
+
+}
+
+test {
+    useJUnitPlatform()
+}
