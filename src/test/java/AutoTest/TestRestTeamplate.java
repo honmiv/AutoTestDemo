@@ -35,7 +35,6 @@ public class TestRestTeamplate {
 
         ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
 
-        //Verify request succeed
         Assert.assertEquals(200, result.getStatusCodeValue());
         Assert.assertEquals(str, result.getBody());
 
