@@ -51,7 +51,7 @@ public class KafkaConsumerOut {
             }
 
             consumerRecords.forEach(record -> {
-                System.out.printf("Record: ключ= "+ record.key()+ " запись= "+record.value()+"\n");
+                System.out.printf("Полученная запись: "+record.value()+"\n");
             });
 
             consumer.commitAsync();
