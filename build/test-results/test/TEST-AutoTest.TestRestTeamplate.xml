@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AutoTest.TestRestTeamplate" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-06T13:33:55" hostname="DESKTOP-6GJQG46" time="0.253">
+  <properties/>
+  <testcase name="testGetEmployeeListSuccess()" classname="AutoTest.TestRestTeamplate" time="0.253"/>
+  <system-out><![CDATA[16:33:55.709 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET http://localhost:8080/getClientSex?clientId=1337
+16:33:55.713 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[text/plain, application/json, application/*+json, */*]
+16:33:55.720 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+16:33:55.721 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [java.lang.String] as "application/json"
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AutoTest.AutoTestRest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-06T13:33:52" hostname="DESKTOP-6GJQG46" time="0.526">
+  <properties/>
+  <testcase name="SexIdTest()" classname="AutoTest.AutoTestRest" time="0.526"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb) on port 1597
+Only local connections are allowed.
+сен 06, 2021 4:33:50 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+]]></system-err>
+</testsuite>
