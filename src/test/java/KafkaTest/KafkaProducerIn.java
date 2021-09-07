@@ -33,7 +33,7 @@ public class KafkaProducerIn {
                                          "42");
 
                          producer.send(record);
-                         System.out.printf("Record: key= "+ record.key() +" value= "+ record.value()+"\n");
+                         System.out.printf("ClientId = "+ record.value()+"\n");
 
                         }
                  producer.flush();
