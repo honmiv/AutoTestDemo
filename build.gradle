@@ -24,8 +24,10 @@ dependencies {
             'org.seleniumhq.selenium:selenium-java:3.141.59',
             'junit:junit:4.13.1',
             'org.springframework.kafka:spring-kafka:2.7.2',
-            'com.google.code.gson:gson:2.8.5'g
+            'com.google.code.gson:gson:2.8.5',
+            'org.projectlombok:lombok:1.18.20'
     )
+    annotationProcessor('org.projectlombok:lombok:1.18.20')
 }
 
 test {
