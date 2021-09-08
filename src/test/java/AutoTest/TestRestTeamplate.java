@@ -1,6 +1,8 @@
 package AutoTest;
 
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,8 +27,7 @@ public class TestRestTeamplate {
     @Test
     public void testGetEmployeeListSuccess() {
         RestTemplate restTemplate = new RestTemplate();
-        String str = "{\"clientId\":\"1337\",\"sex\":\"MALE\"}";
-        final String baseUrl = "http://localhost:8080/getClientSex?clientId=1337";
+        final String baseUrl = "http://localhost:8080/getClientSex?clientId="+ConfProperties.getProperty("UserId");
         URI uri = null;
         try {
             uri = new URI(baseUrl);
@@ -35,10 +36,14 @@ public class TestRestTeamplate {
         }
 
         ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
+        String content = result.getBody();
+        JsonElement parser = new JsonParser().parse(content);
+        String Id = parser.getAsJsonObject().get("clientId").getAsString();
+        String Sex = parser.getAsJsonObject().get("sex").getAsString();
 
         Assert.assertEquals(200, result.getStatusCodeValue());
-        Assert.assertEquals(str, result.getBody());
-
+        Assert.assertEquals((ConfProperties.getProperty("UserId")), Id);
+        Assert.assertEquals((ConfProperties.getProperty("UserSex")),Sex);
     }
 }
 
