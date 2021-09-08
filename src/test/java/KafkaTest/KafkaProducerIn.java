@@ -23,14 +23,14 @@ public class KafkaProducerIn {
         return new KafkaProducer<>(props);
 }
 
-    static void runProducer(final int sendMessageCount) {
+    static void runProducer(final int sendMessageCount, String value) {
          final Producer<Long, String> producer = createProducer();
          long time = System.currentTimeMillis();
 
                  for (long index = time; index < time + sendMessageCount; index++) {
                          final ProducerRecord<Long, String> record =
                                  new ProducerRecord<>(TOPIC, index,
-                                         "42");
+                                         value);
 
                          producer.send(record);
                          System.out.printf("ClientId = "+ record.value()+"\n");
@@ -42,7 +42,7 @@ public class KafkaProducerIn {
     }
 
     public static void main(String[] args) throws Exception {
-        runProducer(5);
+        runProducer(8, "1337");
     }
 }
 

@@ -30,7 +30,7 @@ public class TestRestTeamplate {
         try {
             uri = new URI(baseUrl);
         } catch (URISyntaxException e) {
-            e.printStackTrace();
+            Assertions.fail(e);
         }
 
         ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);

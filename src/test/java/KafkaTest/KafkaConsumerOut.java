@@ -9,11 +9,13 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class KafkaConsumerOut {
 
     private final static String TOPIC = "out-topic-name";
     private final static String BOOTSTRAP_SERVERS = "localhost:9092";
+    static String strValue;
 
     private static Consumer<Long, String> createConsumer() {
         final Properties props = new Properties();
@@ -39,8 +41,9 @@ public class KafkaConsumerOut {
 
         final int giveUp = 100;   int noRecordsCount = 0;
         final Duration MAX_WAIT = Duration.ofNanos(Long.MAX_VALUE);
+        AtomicBoolean flag = new AtomicBoolean(true);
 
-        while (true) {
+        while (flag.get()) {
             final ConsumerRecords<Long, String> consumerRecords =
                    consumer.poll(MAX_WAIT);
 
@@ -52,6 +55,8 @@ public class KafkaConsumerOut {
 
             consumerRecords.forEach(record -> {
                 System.out.printf("Полученная запись: "+record.value()+"\n");
+                strValue = record.value();
+                flag.set(false);
             });
 
             consumer.commitAsync();
